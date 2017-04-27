@@ -77,14 +77,16 @@ resultado.forEach(function(el){
   function agregarTarea(){
   	var input = document.getElementById("add-tarea");
   	contTarea.innerHTML += "<li>" + input.value + "</li>";
-  	if(input.length > 0)
-  	{
-  		if(agregarLista(input))
-  		{
-  			var li= document.createElement('li');
 
-  		}
-  	} return false;
+  	function nuevaTarea(userId, id, title, completed){
+    this.userId = userId,
+    this.id = id,
+    this.title = title,
+    this.completed = completed;
+  };
+
+ var addTarea = new nuevaTarea(1, arreglo.length, input.value, false);
+  arreglo.push(addTarea);
   }
 
 
