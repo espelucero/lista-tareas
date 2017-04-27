@@ -61,20 +61,42 @@ var arreglo = [
   }];
 
 
+var resultado = [];
+var contTarea = document.getElementsByClassName("listaTareas")[0];
+
+ for (i=0; i < arreglo.length;i++)
+{
+ resultado.push(arreglo[i])
+}
+
+resultado.forEach(function(el){
+  contTarea.innerHTML += "<li>" + el.title + "/ " + el.completed + "</li>";
+  });
+  
+
   function agregarTarea(){
   	var input = document.getElementById("add-tarea");
-  	var contTarea = document.getElementsByClassName("listaTareas");
+  	contTarea.innerHTML += "<li>" + input.value + "</li>";
+  	if(input.length > 0)
+  	{
+  		if(agregarLista(input))
+  		{
+  			var li= document.createElement('li');
 
-  	contTarea[0].innerHTML += input.value + "<br>";
-	
+  		}
+  	} return false;
+  }
+
+
+  function agregarLista(contenido){
+  	var el = document.getElementById("lista").getElementByTagName("li");
+  	for (var i = 0; i < el.length; i++) {
+  		if (el[i].innerHTML == contenido)
+  			return false;
+  	}
+  	return true;
   }
   
 
-  var item = document.createElement("li");
+  //var item = document.createElement("li");
 
-  function listaTareas(){
-  var arr = [];
-	for (var i = 0; i < 10; i++){
-	  arr.push(res[i]);
-	}
-}
